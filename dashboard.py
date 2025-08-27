@@ -1,17 +1,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import smtplib
-from email.mime.text import MIMEText
-from datetime import datetime
 import time
 # agent.py
 import json, socket, psutil, smtplib
 from datetime import datetime, timedelta
 from collections import deque
-from email.mime.text import MIMEText
 from sklearn.ensemble import IsolationForest
-import numpy as np
 import platform
 
 class UserBehaviourAgent:
@@ -177,6 +172,7 @@ if st.sidebar.button("Update Baseline"):
     agent.baseline["known_locations"] = [known_ip]
     agent.save_baseline()
     st.sidebar.success("Baseline updated!")
+
 
 
 
