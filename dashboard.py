@@ -6,7 +6,6 @@ import time
 import json, socket, psutil, smtplib
 from datetime import datetime, timedelta
 from collections import deque
-from sklearn.ensemble import IsolationForest
 import platform
 
 class UserBehaviourAgent:
@@ -172,6 +171,7 @@ if st.sidebar.button("Update Baseline"):
     agent.baseline["known_locations"] = [known_ip]
     agent.save_baseline()
     st.sidebar.success("Baseline updated!")
+
 
 
 
