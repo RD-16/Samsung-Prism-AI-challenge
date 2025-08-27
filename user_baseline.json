@@ -1,0 +1,10 @@
+{
+  "login_hours": [
+    8,
+    18
+  ],
+  "max_actions_per_minute": 15,
+  "known_locations": [
+    "127.0.0.1"
+  ]
+}
