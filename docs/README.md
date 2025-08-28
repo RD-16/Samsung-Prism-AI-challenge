@@ -1,3 +1,13 @@
+Problem statement 
+On Device Multi Agent System For Behavior Based Anomaly and Fraud Detection 
+
+
+Team name-Syntax learners 
+Team leader-Manav Kasnia
+Team members- Ritisha 
+              Priya 
+
+
 Project Overview
 
 The User Behavior Monitoring System is a real-time monitoring and anomaly detection tool designed to track user interaction, detect unusual behavior, and provide system-level metrics. It combines rule-based and optional machine learning logic to flag deviations from predefined behavior baselines.
