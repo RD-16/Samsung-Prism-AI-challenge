@@ -92,7 +92,7 @@ class UserBehaviourAgent:
 
 # ------------------ CONFIG ------------------
 st.set_page_config(page_title="User Behavior Monitor", layout="wide")
-st.title("📊 Real-Time User Behavior Dashboard")
+st.title(" Real-Time User Behavior Dashboard")
 
 # ------------------ SESSION TRACKING ------------------
 if "start_time" not in st.session_state:
@@ -122,27 +122,27 @@ def detect_anomalies(df, threshold=2.5):
 data = detect_anomalies(data)
 
 # ------------------ DASHBOARD DISPLAY ------------------
-st.subheader("📈 Activity Overview")
+st.subheader(" Activity Overview")
 st.line_chart(data.set_index("timestamp")["value"])
 
-st.subheader("🚨 Detected Anomalies")
+st.subheader(" Detected Anomalies")
 anomalies = data[data["anomaly"]]
 st.dataframe(anomalies, use_container_width=True)
 
 
 # ------------------ LOGGING ------------------
-st.sidebar.subheader("📝 Action Log")
+st.sidebar.subheader(" Action Log")
 st.sidebar.write(data[["timestamp", "action"]].tail(10))
 
 agent=UserBehaviourAgent()
 # ------------------ SESSION METRICS ------------------
 session_duration = (pd.Timestamp.now() - pd.Timestamp(agent.session_start)).seconds
-st.sidebar.metric("⏱ Session Duration (s)", session_duration)
-st.sidebar.metric("📍 Current IP", agent.get_current_ip())
+st.sidebar.metric(" Session Duration (s)", session_duration)
+st.sidebar.metric(" Current IP", agent.get_current_ip())
 
 
 # ------------------ SYSTEM MONITOR ------------------
-st.subheader("🖥️ System Status")
+st.subheader("System Status")
 status = agent.monitor_system()
 st.write(f"**Time:** {status['time']}")
 st.write(f"**Hour:** {status['hour']}")
@@ -150,7 +150,7 @@ st.write(f"**CPU Usage (%):** {status['cpu']}")
 st.write(f"**IP Address:** {status['ip']}")
 
 # ------------------ ALERTS PANEL ------------------
-st.subheader("🚨 Recent Alerts")
+st.subheader(" Recent Alerts")
 if status["alerts"]:
     for alert in status["alerts"]:
         st.warning(alert)
@@ -160,7 +160,7 @@ else:
 
 
 # ------------------ Baseline Editor ------------------
-st.sidebar.subheader("⚙️ Baseline Settings")
+st.sidebar.subheader(" Baseline Settings")
 login_hours = st.sidebar.slider("Allowed Login Hours", 0, 23, (8, 18))
 max_actions = st.sidebar.number_input("Max Actions/Minute", value=15)
 known_ip = st.sidebar.text_input("Known IP", value="127.0.0.1")
@@ -171,6 +171,7 @@ if st.sidebar.button("Update Baseline"):
     agent.baseline["known_locations"] = [known_ip]
     agent.save_baseline()
     st.sidebar.success("Baseline updated!")
+
 
 
 
